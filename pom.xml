@@ -1,0 +1,40 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.test.paxlogging</groupId>
+	<artifactId>pax-logging-extension</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>Pax Logging Test</name>
+	<packaging>bundle</packaging>
+
+	<dependencies>
+
+	</dependencies>
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.felix</groupId>
+					<artifactId>maven-bundle-plugin</artifactId>
+					<version>3.3.0</version>
+					<extensions>true</extensions>
+					<configuration>
+						<instructions>
+							<Export-Package>!*</Export-Package>
+							<Fragment-Host>org.ops4j.pax.logging.pax-logging-log4j2</Fragment-Host>
+						</instructions>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

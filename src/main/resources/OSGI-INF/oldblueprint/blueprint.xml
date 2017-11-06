@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+	xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd"
+	xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.1.0">
+	
+	<!-- Services -->
+	<!-- ======== -->
+	<!-- bundleService Service definition -->
+	<service ref="bundleService"
+		interface="com.knorrbremse.icom.platform.core.api.bundleservice.BundleServiceIF">
+	</service>
+	<!-- Beans -->
+	<!-- ===== -->
+	<!-- bundleServiceProvider Bean definition -->
+	<bean id="bundleService"
+		class="com.test.paxlogging.extension.Log">
+		<property name="bundleContext" ref="blueprintBundleContext"/>		
+	</bean>
+	
+	<!-- References -->
+	<!-- ========== -->
+	<!-- logService reference definition -->
+	<reference id="logService" activation="eager" availability="optional"
+		interface="com.knorrbremse.icom.platform.core.api.logging.LogServiceIF">
+		<reference-listener bind-method="bindLogService"
+			unbind-method="unbindLogService">
+			<ref component-id="bundleService" />
+		</reference-listener>
+	</reference>
+   
+</blueprint>

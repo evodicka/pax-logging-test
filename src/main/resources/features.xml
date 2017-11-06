@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="pax-extension-repo">
+
+	<feature name="pax-extension" version="1.0.0">
+		<bundle>mvn:com.test.paxlogging/pax-logging-extension/1.0.0-SNAPSHOT</bundle>
+	</feature>
+
+</features>
